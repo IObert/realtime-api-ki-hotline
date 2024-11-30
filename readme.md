@@ -17,8 +17,8 @@ Dieses Projekt zeigt, wie man die OpenAI Real-Time API mit Twilio kombiniert, um
 ### Installation  
 1. **Repository klonen**:  
    ```bash
-   git clone <repository-url>
-   cd <repository-name>
+   git clone https://github.com/IObert/realtime-api-ki-hotline
+   cd realtime-api-ki-hotline
    ```  
 
 2. **Abhängigkeiten installieren**:  
