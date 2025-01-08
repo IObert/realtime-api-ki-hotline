@@ -41,7 +41,7 @@ fastify.register(async (fastify) => {
             responseStartTimestampTwilio = null,
             latestMediaTimestamp = 0, markQueue = [];
 
-        const openAiWs = new WebSocket('wss://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-10-01', {
+        const openAiWs = new WebSocket('wss://api.openai.com/v1/realtime?model=gpt-4o-mini-realtime-preview-2024-12-17', {
             headers: {
                 Authorization: `Bearer ${OPENAI_API_KEY}`,
                 "OpenAI-Beta": "realtime=v1"
@@ -63,7 +63,7 @@ fastify.register(async (fastify) => {
         });
 
 
-        const initialisiereOpenAiSession = () => {
+        function initialisiereOpenAiSession() {
             console.log('Verbunden mit der OpenAI Realtime API');
             const sessionUpdate = {
                 type: 'session.update',
@@ -135,7 +135,7 @@ fastify.register(async (fastify) => {
             openAiWs.send(JSON.stringify({ type: 'response.create' }));
         };
 
-        const verarbeiteAnruferNachrichten = (message) => {
+        function verarbeiteAnruferNachrichten(message) {
             try {
                 const data = JSON.parse(message);
 
@@ -177,7 +177,7 @@ fastify.register(async (fastify) => {
             "conversation.item.created",
             "response.function_call_arguments.done",
         ];
-        const verarbeiteOpenAiNachrichten = (data) => {
+        function verarbeiteOpenAiNachrichten(data) {
             try {
                 const response = JSON.parse(data);
 
