@@ -272,5 +272,5 @@ fastify.listen({ port: 3000 }, (err) => {
         console.error(err);
         process.exit(1);
     }
-    console.log(`Server started`);
+    console.log(`Server gestartet`);
 });
